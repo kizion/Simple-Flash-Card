@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "word": "Test",
+        "type": "Norn",
+        "chWord": "\u6e2c\u8a66",
+        "desc": "\u6e2c\u8a66\u6771\u897f",
+        "year": "2023",
+        "month": "Dec"
+    },
+    {
+        "id": "2",
+        "word": "food",
+        "type": "Norn",
+        "chWord": "\u98df\u7269",
+        "desc": "\u5403\u6771\u897f",
+        "year": "2023",
+        "month": "Dec"
+    },
+    {
+        "id": "3",
+        "word": "bowbow",
+        "type": "Pronoun",
+        "chWord": "bow\u8c6c",
+        "desc": "bow\u8c6c",
+        "year": "2023",
+        "month": "Dec"
+    }
+]

@@ -32,6 +32,6 @@
     <input type="submit" name="save" >
 </form>
 
-<a href='../pages/viewWordsList.php'>Back</a>
+<a href='../pages/viewWordsList.php?page=1'>Back</a>
 </body>
 </html>

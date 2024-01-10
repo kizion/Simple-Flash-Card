@@ -5,7 +5,7 @@
         $data = json_decode($data);
         $isRepeated = false;
         foreach($data as $row){
-            if($row->word == $_POST['word']){
+            if($row->word == $_POST['word'] && $row->isDelete=="N"){
                 $isRepeated = true;
                 break;
             }
@@ -18,7 +18,7 @@
             </a> ";
 
         }else{
-            $newID =  strval(count($data) +1); 
+            $newID =  strval(count($data)); 
 
             $input= array(
                 'id' => $newID,
@@ -27,7 +27,8 @@
                 "chWord" => $_POST['chWord'],
                 "desc" => $_POST['desc'],
                 "year" => $_POST['year'],
-                "month"=> $_POST['month']
+                "month"=> $_POST['month'],
+                "isDelete" => "N"
             
 
             );

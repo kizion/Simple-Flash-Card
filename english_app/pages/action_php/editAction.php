@@ -11,16 +11,15 @@
         "type" => $_POST['type'],
         "chWord" => $_POST['chWord'],
         "desc" => $_POST['desc'],
-        "year" => $_POST['year'],
-        "month"=> $_POST['month']
-       
-
+        "year" => $data_array[$_POST['id']]->year,
+        "month"=> $data_array[$_POST['id']]->month,
+        "isDelete"=> $data_array[$_POST['id']]->isDelete
     );
     
     $data_array[$_POST['id']] = $input;
     $data = json_encode($data_array,JSON_PRETTY_PRINT);
     file_put_contents("../action_php/json/words.json",$data);
-    header("location: ../viewWordsList.php");
+    header("location: ../viewWordsList.php?page=1");
     
 
 } 

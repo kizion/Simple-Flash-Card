@@ -7,7 +7,7 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNC-Normal</title>
-    <link rel="stylesheet" href="../css/mode.css">
+    <link rel="stylesheet" href="../css/mode2.css">
 </head>
 <script type="text/javascript">
     var maxNum = 0;
@@ -84,6 +84,10 @@ ob_start();
 <a href="./selectMode.php" >
     <button class="quitBtn" id="quitBtn"><</button>
 </a>
+
+<div class="countNum">
+    <label><?php echo $index+1;?>/<?php echo count($searchWord);?></label>
+</div>
 
    
     

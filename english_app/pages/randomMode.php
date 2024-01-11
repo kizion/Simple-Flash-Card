@@ -1,10 +1,22 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+ob_start();
+
+if(isset($_SESSION['allDataList'])){
+    if(count($_SESSION['allDataList']) == 0){
+        echo "<script>Please dont refresh the page~</script>";
+        header("location: ../pages/randomMode.php");
+        
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SNC-Random</title>
+    <link rel="stylesheet" href="../css/randMode.css">
 </head>
 <script type="text/javascript">
     var maxNum = 0;
@@ -14,6 +26,13 @@
         getCurrentN = parseInt(document.getElementById("indexVal").value);
        
         document.getElementById("chWord").hidden = false;
+
+        if(document.getElementById("resultWord").value != null){
+            document.getElementById("chWord").innerHTML = "Empty Chinese Meaning(Error)";
+        }else{
+            document.getElementById("chWord").innerHTML = document.getElementById("resultWord").value;
+        }
+        
        
 
         if(document.getElementById("indexVal").value == document.getElementById("maxNum").value-1){
@@ -42,9 +61,20 @@
     else if(!isset($_POST['nextBtn'])){
         $data = file_get_contents('../pages/action_php/json/words.json');
         $data_array = json_decode($data);
-        $_SESSION['totalNum'] = count($data_array);
-        $randNum = rand(0,$_SESSION['totalNum']-1);
-        $_SESSION['allDataList'] = $data_array;
+        $totalNum = count($data_array);
+        $searchWord = array();
+        for($i = 0 ; $i < $totalNum ; $i++){
+            $string = $data_array[$i]->isDelete;
+            if (str_contains($string, "N")){
+            array_push($searchWord,$data_array[$i]);
+            }else{
+            continue;
+            }
+        }
+        $totalNum = count($searchWord);
+        $_SESSION['totalNum'] = count($searchWord);
+        $randNum = rand(0,$totalNum-1);
+        $_SESSION['allDataList'] = $searchWord;
         
         
     }else{
@@ -53,22 +83,26 @@
     $currentData = $_SESSION['allDataList'][$randNum];
     
     unset($_SESSION['allDataList'][$randNum]);
-?>    
-    <input id="engWord" type="text" readonly value='<?php echo $currentData->word;?>'><br>
-    <input id="type" type="text" readonly value='<?php echo $currentData->type;?>'><br>
-    <textarea id="desc" rows="4" cols="30" readonly ><?php echo $currentData->desc;?></textarea><br>
-    <input id="chWord" type="text" readonly hidden value='<?php echo $currentData->chWord;?>'><br>
-    
+?>
+<div class="container"> 
+    <h1 id="engWord"><?php echo $currentData->word;?></h1>
+    <h2 id="chWord">???</h2> 
+    <h4 id="type"><?php echo $currentData->type;?></h4>
+    <p id="desc"><?php echo $currentData->desc;?></p>
+ 
     <form method="post">
-    <button name = "nextBtn" id="nextBtn"  name="nextBtn" hidden>Next</button>
-    <button name = "restartBtn" id="restartBtn"  name="restartBtn" hidden>Restart</button>
+    <button class="Btn" role="button" name = "nextBtn" id="nextBtn" hidden>Next</button>
+    <button class="Btn" name = "restartBtn" id="restartBtn"  name="restartBtn" hidden>Restart</button>
     <input type = "hidden" id ="indexVal" name = "indexVal" value='<?php echo $index;?>'>
     <input type = "hidden" id ="maxNum" name = "maxNum" value='<?php echo $_SESSION['totalNum'];?>'>
-   
+    <input type = "hidden" id = "resultWord" value='<?php echo $currentData->chWord;?>'> 
     </form>
-    <br>
-    <a href="./selectMode.html" id="quitBtn" >
-        <button >Quit</button>
-    </a>
+</div>
+<a href="./selectMode.php" >
+    <button class="quitBtn" id="quitBtn"><</button>
+</a>
+<div class="countNum">
+    <label><?php echo $index+1;?>/<?php echo $_SESSION['totalNum'];?></label>
+</div>
 </body>
 </html>

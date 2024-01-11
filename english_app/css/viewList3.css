@@ -1,5 +1,5 @@
 body {
-    background-color: powderblue;
+    background-color: white;
 }
 
 .btnPosition{
@@ -40,7 +40,12 @@ body {
     height: 50px;
 }
 
+.searchBar{
+  margin-top: 3%;
+  margin-bottom: 120px;
+}
 #searchInput{
+    
     float:right;
     width: 250px;
     height: 35px;
@@ -76,19 +81,25 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    background-color: 	#778899;
+    background-color: 	#DCDCDC;
   }
-  
-  td, th {
+  th{
+    background-color: #000000;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+  }
+  td {
     border: 1px solid #000000;
     text-align: left;
-    color: #FFFFFF;
+    color:aliceblue;
     padding: 8px;
+    width: 25%;
 
   }
   
   tr:nth-child(even) {
-    background-color: #c5c0c0;
+    background-color: 	#C0C0C0;
 
 
   }

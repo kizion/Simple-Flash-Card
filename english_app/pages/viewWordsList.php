@@ -7,12 +7,12 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNC-Table</title>
-    <link rel="stylesheet" href="../css/viewList.css">
+    <link rel="stylesheet" href="../css/viewList3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <script >
 function myFunction(id) {
-  let text = "Are you delete this word?";
+  let text = "Are you sure to delete this word?";
   if (confirm(text) == true) {
     window.location.replace("../pages/action_php/deleteAction.php?index="+id);
   }
@@ -37,7 +37,7 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
     </td>
     </tr>";  
   }
-} 
+}
 ?>
 <body>
 <div class="top"></div>

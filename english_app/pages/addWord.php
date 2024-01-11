@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SNC-Add</title>
+    <link rel="stylesheet" href="../css/addWord.css">
 </head>
 <body>
 <?php
     $year = date("Y");
     $month = date("M");
+    if(isset($_GET['error'])){
+        if($_GET['error'] == "repeatedWord"){
+            echo "<script>alert('This word is exist');</script>";
+        }else if($_GET['error'] == "blankError"){
+            echo "<script>alert('The input box cant empty');</script>";
+        }
+        
+    }
 ?>
+
+<div class="container">
 <form method="POST" action='../pages/action_php/addAction.php'> 
-    The word:<input type="text" name="word"> <br>
-    Type:
-    <select name="type">
+    <p id="labelText">Create Action</p>
+    <div class="inputBox" id="inputBox">
+    <label for ="word">Word</label>
+    <input type="text" name="word" id ="name" placeholder="word"> 
+
+    <label for ="type">Type</label>
+    <select name="type" id="type">
     <option value="Noun">NOUN 名詞</option>
     <option value="Pronoun">PRONOUN 代名詞</option>
     <option value="Verb">VERB 動詞</option>
@@ -22,16 +37,22 @@
     <option value="Preposition">PREPOSITION 介系詞</option>
     <option value="Conjunction">CONJUNCTION 連接詞</option>
     <option value="Interjection">INTERJECTION 感嘆詞</option>
-    </select> <br>
-    Chinese meaning: <input type="text" name="chWord"> <br>
-    Description: <textarea  name="desc" rows="4" cols="30">describe the word</textarea><br>
+    </select> 
+    <label for="chMeaning">Chinese Meaning</label>
+    <input type="text" name="chWord" id ="chMeaning" placeholder="中文意思"> 
+    <label for="desc">Description</label>
+    <textarea name="desc" rows="4" cols="30" id ="desc">describe the word</textarea>
+    </div>
     <input type="hidden" name="year" value='<?php echo $year;?>'>
     <input type="hidden" name="month" value='<?php echo $month;?>'>
 
     <input type= "hidden" value='https://qqeng.net/tw/Learning/the-eight-parts-of-speech-introduction-to-english-grammar/'> <br>
-    <input type="submit" name="save" >
+    <button type="submit" name="save" class="createBtn">Create</button>
 </form>
+</div>
 
-<a href='../pages/viewWordsList.php?page=1'>Back</a>
+<a href='../pages/viewWordsList.php?page=1' >
+      <button class="btnQ" id="quitBtn"><</button>
+</a>
 </body>
 </html>

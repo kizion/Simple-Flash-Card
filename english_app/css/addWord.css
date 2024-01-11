@@ -1,0 +1,87 @@
+body {
+    background-color: white;
+}
+
+.container{
+    margin: auto;
+    width: 50%;
+    margin-top: 10%;
+    border: 3px solid black;
+    padding: 15px;
+}
+
+
+.inputBox {
+    display:grid;
+    margin-top: 10px;
+    
+}
+
+.inputBox input,textarea,select{
+    height: 35px;
+}
+
+.inputBox label{
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+#labelText{
+    position: relative;
+    text-align: center;
+    font-size: 35px;
+}
+
+.createBtn {
+    margin-bottom: 20px;
+    width: 100%;
+    background: #000000;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+  }
+  
+  .createBtn:hover,
+  .createBtn:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #91ff42;
+  }
+  
+  .createBtn:active {
+    opacity: .5;
+  }
+  .btnQ{
+    margin-left: 10px;
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #000000;
+}
+
+.btnQ:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}

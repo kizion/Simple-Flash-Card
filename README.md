@@ -4,7 +4,7 @@ Installation
 install docker environment
 
 #STEP2:
-open to the source code file path with (cmd/terminal)
+open to the source file path with (cmd/terminal)
 
 #STEP3: copy these commands to the cmd (modify the your_path)<br/>
 

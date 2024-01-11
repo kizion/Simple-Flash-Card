@@ -2,9 +2,9 @@
     {
         "id": "0",
         "word": "Test",
-        "type": "Noun",
+        "type": "Verb",
         "chWord": "\u6e2c\u8a66",
-        "desc": "\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66\u6e2c\u8a66",
+        "desc": "test the system",
         "year": "2023",
         "month": "Dec",
         "isDelete": "N"

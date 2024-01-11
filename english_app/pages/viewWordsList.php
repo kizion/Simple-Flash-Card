@@ -32,8 +32,8 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
     <td>".$data[$i]->chWord."</td>
     <td>".$data[$i]->type."</td>
     <td>
-    <a href='editWord.php?index=".$data[$i]->id."'> <button class='editBtn' role='button'>EDIT</button></a>
-    <button class='button-24' role='button' onclick='myFunction(".$data[$i]->id.")'>DELETE</button>
+    <a href='editWord.php?index=".$data[$i]->id."'> <button class='editBtn' role='button' id='btnList'>EDIT</button></a>
+    <button class='button-24' role='button' onclick='myFunction(".$data[$i]->id.")' id='btnList'>DELETE</button>
     </td>
     </tr>";  
   }
@@ -55,12 +55,11 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
 <div class="searchBar">
 
 <form method="POST" action ="./viewWordsList.php?page=1&search=Y"> 
+<input type="text" placeholder="Search" name="searchWord" id ="searchInput">
+<button type="submit" name="search" id="searchBtn"><i class="fa fa-search"></i></button>
 <a href="./viewWordsList.php">
         <button id="reloadBtn"><i class="fa fa-refresh"></i></button>
 </a>
-<button type="submit" name="search" id="searchBtn"><i class="fa fa-search"></i></button>
-
-<input type="text" placeholder="Search" name="searchWord" id ="searchInput">
 </form>
 
 
@@ -70,7 +69,7 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
 <table>
     <tr>
         <th>Word</th>
-        <th>cNWord</th>
+        <th>ChWord</th>
         <th>Type</th>
         <th>Action</th>
     </tr>

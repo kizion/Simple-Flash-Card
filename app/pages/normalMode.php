@@ -21,7 +21,12 @@ ob_start();
         }else{
             document.getElementById("nextBtn").hidden = false;
             document.getElementById("preBtn").hidden = false;
-            document.getElementById("chWord").innerHTML = document.getElementById("resultWord").value;
+            
+            if(document.getElementById("resultWord").value == null){
+              document.getElementById("chWord").innerHTML = "Empty Chinese Meaning(Error)";
+            }else{
+              document.getElementById("chWord").innerHTML = document.getElementById("resultWord").value;
+            }
         }
         
     });

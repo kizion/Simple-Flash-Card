@@ -20,7 +20,7 @@ ob_start();
        
         document.getElementById("chWord").hidden = false;
 
-        if(document.getElementById("resultWord").value != null){
+        if(document.getElementById("resultWord").value == null){
             document.getElementById("chWord").innerHTML = "Empty Chinese Meaning(Error)";
         }else{
             document.getElementById("chWord").innerHTML = document.getElementById("resultWord").value;

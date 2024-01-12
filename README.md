@@ -15,7 +15,7 @@ docker build -t simnotecard .
 2. Run a docker image <br/>
 *xxxx need to change your local path*
 ```
-docker run -it --name=SNC -v xxxx\english_app:/var/www/html -p=3000:3000 simnotecard 
+docker run -it --name=SNC -v D:\docker\simNoteCard\app:/var/www/html -p=3000:3000 --restart always simnotecard 
 ```
 
 #STEP4:

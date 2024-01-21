@@ -5,7 +5,8 @@
             header("location: ../addWord.php?error=blankError");
 
         }else{
-            $data = file_get_contents('../action_php/json/words.json');
+            session_start();
+            $data = file_get_contents('../action_php/json/'.$_SESSION['fileName']);
             $data = json_decode($data);
             $isRepeated = false;
             foreach($data as $row){
@@ -35,8 +36,8 @@
                 
                 $data[] = $input;
                 $data = json_encode($data,JSON_PRETTY_PRINT);
-                file_put_contents("../action_php/json/words.json",$data);
-                header("location: ../viewWordsList.php?page=1");
+                file_put_contents("../action_php/json/".$_SESSION['fileName'],$data);
+                header("location: ../viewWordsList.php?page=1&maxPage=".$_POST['maxPage']);
             }
         }
         

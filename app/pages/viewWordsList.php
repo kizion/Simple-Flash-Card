@@ -7,14 +7,14 @@ ob_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SNC-Table</title>
-    <link rel="stylesheet" href="../css/viewList4.css">
+    <link rel="stylesheet" href="../css/viewList6.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <script >
-function myFunction(id) {
+function myFunction(id,maxPage) {
   let text = "Are you sure to delete this word?";
   if (confirm(text) == true) {
-    window.location.replace("../pages/action_php/deleteAction.php?index="+id);
+    window.location.replace("../pages/action_php/deleteAction.php?index="+id+"&maxPage="+maxPage);
   }
   
 }
@@ -32,21 +32,53 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
     <td>".$data[$i]->chWord."</td>
     <td>".$data[$i]->type."</td>
     <td>
-    <a href='editWord.php?index=".$data[$i]->id."'> <button class='editBtn' role='button' id='btnList'>EDIT</button></a>
-    <button class='button-24' role='button' onclick='myFunction(".$data[$i]->id.")' id='btnList'>DELETE</button>
+    <a href='editWord.php?index=".$data[$i]->id."&maxPage=".$_GET['maxPage']."&page=".$_GET['page']."'> <button class='editBtn' role='button' id='btnList'>EDIT</button></a>
+    <button class='button-24' role='button' onclick='myFunction(".$data[$i]->id.",".$_GET['maxPage'].")' id='btnList'>DELETE</button>
     </td>
     </tr>";  
   }
+}
+function printPage($pageNum,$maxPage,$word){
+  for($i = 0 ; $i<$pageNum ; $i++){
+    if($i <=$maxPage && $i>= $maxPage-4){
+      if(isset($_GET['search'])){
+        if($i == $maxPage && $i <= $pageNum){        
+          echo "<a href='./viewWordsList.php?page=".($i+1)."&maxPage=".($_GET['maxPage']+1)."&search=Y&word=".$word."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
+        }
+        else if($i == $maxPage-4 && $i != 0){
+          echo "<a href='./viewWordsList.php?page=".($i+1)."&maxPage=".($_GET['maxPage']-1)."&search=Y&word=".$word."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
+        }
+        else{
+          echo "<a href='./viewWordsList.php?page=".($i+1)."&maxPage=".($_GET['maxPage'])."&search=Y&word=".$word."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
+        }
+        
+      }else{
+        if($i == $maxPage && $i <= $pageNum){        
+          echo "<a href='./viewWordsList.php?page=".($i+1)."&maxPage=".($_GET['maxPage']+1)."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
+        }
+        else if($i == $maxPage-4 && $i != 0){
+          echo "<a href='./viewWordsList.php?page=".($i+1)."&maxPage=".($_GET['maxPage']-1)."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
+        }
+        else{
+          echo "<a href='./viewWordsList.php?page=".($i+1)."&maxPage=".($_GET['maxPage'])."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
+        }
+        
+      }
+
+
+    }
+    
+}
 }
 ?>
 <body>
 <div class="top"></div>
 <div class="btnPosition">
-  <a href="../main.html" >
+  <a href="../pages/selectMode.php" >
       <button class="btnQ" id="quitBtn"><i class="fa fa-mail-reply"></i></button>
   </a>
 
-  <a href='../pages/addWord.php'>
+  <a href='../pages/addWord.php?maxPage=<?php echo $_GET['maxPage'];?>'>
       <button class="btnA" id="addBtn"><i class="fa fa-plus"></i></button>
   </a>
 
@@ -54,17 +86,17 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
 
 <div class="searchBar">
 
-<form method="POST" action ="./viewWordsList.php?page=1&search=Y"> 
+<form method="POST" action ="./viewWordsList.php?page=1&search=Y&maxPage=4"> 
 <input type="text" placeholder="Search" name="searchWord" id ="searchInput">
 <button type="submit" name="search" id="searchBtn"><i class="fa fa-search"></i></button>
+
+</form>
 <a href="./viewWordsList.php">
         <button id="reloadBtn"><i class="fa fa-refresh"></i></button>
 </a>
-</form>
 
 
 </div>
-
 
 <table>
     <tr>
@@ -74,7 +106,8 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
         <th>Action</th>
     </tr>
     <?php
-      $data = file_get_contents('../pages/action_php/json/words.json');
+      session_start();
+      $data = file_get_contents('../pages/action_php/json/'.$_SESSION['fileName']);
       $data = json_decode($data);
       $totalNum = count($data);
       
@@ -122,20 +155,20 @@ function printResult($maxData,$currentPageNum,$data,$totalNum){
         printResult($maxData,$currentPageNum,$searchWord,count($searchWord));
         $pageNum = ceil($wordNum/5);
       }else{
-        header("location: ./viewWordsList.php?page=1");
+        header("location: ./viewWordsList.php?page=1&maxPage=4");
       }
     ?>
 </table>
 <div class="numlist">
 <?php
-  for($i = 0 ; $i<$pageNum ; $i++){
-    if(isset($_GET['search'])){
-      echo "<a href='./viewWordsList.php?page=".($i+1)."&search=Y&word=".$word."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
-    }else{
-      echo "<a href='./viewWordsList.php?page=".($i+1)."' class='pageNumList'><button id='numBtn'>".($i+1)."</button></a>";
-    }
-      
-  }
+//Define Max Page number
+
+//Define Page Number
+printPage($pageNum,$_GET['maxPage'],$word);
+
+
+
+  
 ?>
 </div>
 </body>

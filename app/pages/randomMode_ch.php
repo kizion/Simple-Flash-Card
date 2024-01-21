@@ -21,7 +21,7 @@ ob_start();
         document.getElementById("chWord").hidden = false;
 
         if(document.getElementById("resultWord").value == null){
-            document.getElementById("chWord").innerHTML = "Empty Chinese Meaning(Error)";
+            document.getElementById("chWord").innerHTML = "Empty English Word(Error)";
         }else{
             document.getElementById("chWord").innerHTML = document.getElementById("resultWord").value;
         }
@@ -78,7 +78,7 @@ ob_start();
     unset($_SESSION['allDataList'][$randNum]);
 ?>
 <div class="container"> 
-    <h1 id="engWord"><?php echo $currentData->word;?></h1>
+    <h1 id="engWord"><?php echo $currentData->chWord;?></h1>
     <h2 id="chWord">???</h2> 
     <h4 id="type"><?php echo $currentData->type;?></h4>
     <p id="desc"><?php echo $currentData->desc;?></p>
@@ -88,7 +88,7 @@ ob_start();
     <button class="Btn" name = "restartBtn" id="restartBtn"  name="restartBtn" hidden>Restart</button>
     <input type = "hidden" id ="indexVal" name = "indexVal" value='<?php echo $index;?>'>
     <input type = "hidden" id ="maxNum" name = "maxNum" value='<?php echo $_SESSION['totalNum'];?>'>
-    <input type = "hidden" id = "resultWord" value='<?php echo $currentData->chWord;?>'> 
+    <input type = "hidden" id = "resultWord" value='<?php echo $currentData->word;?>'> 
     </form>
 </div>
 <a href="./selectMode.php" >

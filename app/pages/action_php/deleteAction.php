@@ -1,5 +1,6 @@
 <?php
- $data = file_get_contents('../action_php/json/words.json');
+ session_start();
+ $data = file_get_contents('../action_php/json/'.$_SESSION['fileName']);
  $data_array = json_decode($data);
     $id = $_GET['index'];
 
@@ -17,6 +18,6 @@
  
  $data_array[$id ] = $input;
  $data = json_encode($data_array,JSON_PRETTY_PRINT);
- file_put_contents("../action_php/json/words.json",$data);
- header("location: ../viewWordsList.php?page=1");
+ file_put_contents("../action_php/json/".$_SESSION['fileName'],$data);
+ header("location: ../viewWordsList.php?page=1&maxPage=".$_GET['maxPage']);
 ?>

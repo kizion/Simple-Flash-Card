@@ -26,7 +26,7 @@
     <p id="labelText">Create Action</p>
     <div class="inputBox" id="inputBox">
     <label for ="word">Word</label>
-    <input type="text" name="word" id ="name" placeholder="word"> 
+    <input type="text" name="word" id ="name" placeholder="Word"> 
 
     <label for ="type">Type</label>
     <select name="type" id="type">
@@ -42,17 +42,19 @@
     <label for="chMeaning">Chinese Meaning</label>
     <input type="text" name="chWord" id ="chMeaning" placeholder="中文意思"> 
     <label for="desc">Description</label>
-    <textarea name="desc" rows="4" cols="30" id ="desc">describe the word</textarea>
+    <textarea name="desc" rows="4" cols="30" id ="desc" placeholder="Describe the word"></textarea>
     </div>
     <input type="hidden" name="year" value='<?php echo $year;?>'>
     <input type="hidden" name="month" value='<?php echo $month;?>'>
+    <input type="hidden" name="maxPage" value='<?php echo $_GET['maxPage'];?>'>
+
 
     <input type= "hidden" value='https://qqeng.net/tw/Learning/the-eight-parts-of-speech-introduction-to-english-grammar/'> <br>
     <button type="submit" name="save" class="createBtn">Create</button>
 </form>
 </div>
 
-<a href='../pages/viewWordsList.php?page=1' >
+<a href='../pages/viewWordsList.php?page=1&maxPage=<?php echo $_GET['maxPage']; ?>' >
       <button class="btnQ" id="quitBtn"><i class="fa fa-mail-reply"></i></button>
 </a>
 </body>

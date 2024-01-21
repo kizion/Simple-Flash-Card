@@ -10,7 +10,8 @@
 <body>
 <?php
     $index = $_GET['index'];
-    $data = file_get_contents('../pages/action_php/json/words.json');
+    session_start();
+    $data = file_get_contents('../pages/action_php/json/'.$_SESSION['fileName']);
     $data_array = json_decode($data);
 
     $currentData = $data_array[$index];
@@ -47,13 +48,15 @@
             <input type="hidden" name="year" value='<?php echo $currentData->year;?>'>
             <input type="hidden" name="month" value='<?php echo $currentData->month;?>'> 
             <input type="hidden" name="id" value='<?php echo $index;?>'> <br>
+            <input type="hidden" name="maxPage" value='<?php echo $_GET['maxPage'];?>'> <br>
+            <input type="hidden" name="page" value='<?php echo $_GET['page'];?>'> <br>
             <button type="submit" name="edit" class="createBtn">Edit</button>
         
 
     </form>
 </div>
 
-<a href='../pages/viewWordsList.php?page=1' >
+<a href='../pages/viewWordsList.php?page=<?php echo $_GET['page'];?>&maxPage=<?php echo $_GET['maxPage'];?>'>
       <button class="btnQ" id="quitBtn"><i class="fa fa-mail-reply"></i></button>
 </a>
 </body>

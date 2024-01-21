@@ -19,7 +19,7 @@ docker run -it --name=SNC -v D:\docker\simNoteCard\app:/var/www/html -p=3000:300
 ```
 
 #STEP4:
-localhost:3000/main.html
+localhost:3000/main.php
 <br/>
 
 Screenshot

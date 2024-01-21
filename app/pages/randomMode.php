@@ -48,7 +48,7 @@ ob_start();
         $index = $_POST['indexVal']+1;
     }
     else if(isset($_POST['restartBtn'])){
-        session_destroy();
+        unset($_SESSION['allDataList']);
         header("location: ../pages/randomMode.php");
     }
     else if(!isset($_POST['nextBtn'])){

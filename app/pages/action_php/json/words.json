@@ -7,6 +7,186 @@
         "desc": "test the system",
         "year": "2023",
         "month": "Dec",
+        "isDelete": "Y"
+    },
+    {
+        "id": "1",
+        "word": "asddas",
+        "type": "Noun",
+        "chWord": "asdas",
+        "desc": "describe the word",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "Y"
+    },
+    {
+        "id": "2",
+        "word": "Consciousness",
+        "type": "Noun",
+        "chWord": "\u610f\u8b58",
+        "desc": "Do you think consciousness is important for AI?",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "3",
+        "word": "Bias",
+        "type": "Noun",
+        "chWord": "\u504f\u898b",
+        "desc": "The bias of the human feedback raters",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "4",
+        "word": "Properties",
+        "type": "Noun",
+        "chWord": "\u5c6c\u6027",
+        "desc": "System properties preserved in face of attack",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "5",
+        "word": "Precedence",
+        "type": "Noun",
+        "chWord": "\u512a\u5148",
+        "desc": "Performance take precedence",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "6",
+        "word": "Approach",
+        "type": "Noun",
+        "chWord": "\u65b9\u6cd5",
+        "desc": "the approach is not working",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "7",
+        "word": "Confidentiality",
+        "type": "Noun",
+        "chWord": "\u6a5f\u5bc6\u6027",
+        "desc": "I signed a confidentiality agreement",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "8",
+        "word": "Integrity",
+        "type": "Noun",
+        "chWord": "\u8aa0\u4fe1",
+        "desc": "You don't have any integrity now!",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "9",
+        "word": "Manipulate",
+        "type": "Verb",
+        "chWord": "\u64cd\u4f5c",
+        "desc": "Information is manipulated by sytsem",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "10",
+        "word": "Secure",
+        "type": "Adjective",
+        "chWord": "\u5b89\u5168\u7684",
+        "desc": "Is a system secure?",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "11",
+        "word": "Vulnerability",
+        "type": "Noun",
+        "chWord": "\u5f31\u9ede",
+        "desc": "Everyone should accept own vulnerability",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "12",
+        "word": "Allocation",
+        "type": "Noun",
+        "chWord": "\u5206\u914d",
+        "desc": "Manage the allocation of computer resources",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "13",
+        "word": "Philosophy",
+        "type": "Noun",
+        "chWord": "\u54f2\u5b78",
+        "desc": "Ethics is a branch of philosophy.",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "14",
+        "word": "Fundamental",
+        "type": "Adjective",
+        "chWord": "\u57fa\u672c",
+        "desc": "The fundamental nature of knowledge...",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "15",
+        "word": "Morality",
+        "type": "Adjective",
+        "chWord": "\u9053\u7406",
+        "desc": "The philosophical study of morality.",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "16",
+        "word": "Religion",
+        "type": "Noun",
+        "chWord": "\u5b97\u6559",
+        "desc": "The idea is alien to our religion. ",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "17",
+        "word": "Military",
+        "type": "Adjective",
+        "chWord": "\u8ecd\u968a\u7684",
+        "desc": "The military members have some weapons.",
+        "year": "2024",
+        "month": "Jan",
+        "isDelete": "N"
+    },
+    {
+        "id": "18",
+        "word": "Violation",
+        "type": "Noun",
+        "chWord": "\u9055\u53cd",
+        "desc": "The willful violation",
+        "year": "2024",
+        "month": "Jan",
         "isDelete": "N"
     }
 ]
